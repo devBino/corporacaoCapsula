@@ -188,10 +188,10 @@ public class CtTratamentoErro extends ObjetoTeste {
 			
 		}catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Erro: posição não existe no array");
-			System.exit(0);
+			//System.exit(0);
 		}catch(Throwable e) {
 			System.out.println("Erro genérico...");
-			System.exit(0);
+			//System.exit(0);
 		}finally {
 			System.out.println("Finalizou programa...");
 		}

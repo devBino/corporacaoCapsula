@@ -26,7 +26,7 @@ public class TestesConstants {
 	 * Abaixo, cria as constants para seus testes  
 	 */
 	
-	
+	public static String ENUMS = "EnumTeste";
 	
 	
 	
