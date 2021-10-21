@@ -4,13 +4,15 @@ import br.com.bino.abstracts.TesteAbstract;
 import br.com.bino.constants.TestesConstants;
 
 import br.com.bino.repositories.enumeradores.DiaSemana;
+import br.com.bino.repositories.enumeradores.TipoDocumento;
+import br.com.bino.repositories.enumeradores.Calculadora;
 import br.com.bino.repositories.enumeradores.DiaFimSemana;
 import br.com.bino.repositories.testes.Pessoa;
 
 public class EnumTeste extends TesteAbstract{
 
 	public EnumTeste() {
-		super.setNomeTeste(TestesConstants.ENUMS);
+		super.setNomeTeste(TestesConstants.ENUMERADORES);
 	}
 	
 	@Override
@@ -22,6 +24,8 @@ public class EnumTeste extends TesteAbstract{
 			enumGeneroPessoa();
 			exibirValoresEnum();
 			recuperaValorDoEnum();
+			enumComMetodosAbstratos();
+			calculadoraEnum();
 		}
 		
 	}
@@ -116,6 +120,56 @@ public class EnumTeste extends TesteAbstract{
 		
 		linha();
 		
+	}
+	
+	/**
+	 * Enumeradores com metodos abstratos,
+	 * onde cada valor deverá implementar o método abstrato
+	 * especificado
+	 */
+	public void enumComMetodosAbstratos() {
+		
+		for(TipoDocumento doc : TipoDocumento.values()) {
+			
+			System.out.println(doc + " - " + doc.gerarNumero());
+			
+		}
+		
+		
+		Pessoa p = new Pessoa("Fernando");
+		p.setGenero('m');
+		
+		TipoDocumento t = TipoDocumento.CPF;
+		p.setTipoDocumento(t);
+		p.setNumeroDocumento(t.gerarNumero());
+		
+		linha();
+		
+	}
+	
+	/**
+	 * Se utilizando de um enumerador,
+	 * foi criada um calculadora, onde cada valor do enum
+	 * é uma operação aritimetica, 
+	 * e dentro do enum, temos o metodo abstrato calcular
+	 * então cada valor do enum teve o metodo calcular implementado
+	 * para cada operação aritimetica
+	 */
+	public void calculadoraEnum() {
+		
+		Calculadora som = Calculadora.SOMA;
+		System.out.println( som + " => " + som.calcular(11.23,34.98) );
+		
+		Calculadora sub = Calculadora.SUBTRACAO;
+		System.out.println(sub + " => " + sub.calcular(567.89,345.98));
+		
+		Calculadora mul = Calculadora.MULTIPLICACAO;
+		System.out.println(mul + " => " + mul.calcular(9,9));
+		
+		Calculadora div = Calculadora.DIVISAO;
+		System.out.println(div + " => " + div.calcular(81,9));
+		
+		linha();
 	}
 	
 	

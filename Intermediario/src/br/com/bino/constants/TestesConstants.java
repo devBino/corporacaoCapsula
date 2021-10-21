@@ -5,8 +5,8 @@ public class TestesConstants {
 	/**
 	 * Constants padrão
 	 */
-	public static String GENERICO = "Generico";
-	public static String ABSTRACT = "TesteAbstract";
+	public static final String GENERICO = "Generico";
+	public static final String ABSTRACT = "TesteAbstract";
 	
 	/**
 	 * Mantenha a constante abaixo como GENERICO
@@ -14,19 +14,19 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static String PADRAO = GENERICO;
+	public static final String PADRAO = GENERICO;
 	
 	/*
 	 * Implementação exemplo
 	 */
-	public static String ALO_BINO = "AloBinoTeste";
+	public static final String ALO_BINO = "AloBinoTeste";
 	
 	
 	/**
 	 * Abaixo, cria as constants para seus testes  
 	 */
 	
-	public static String ENUMS = "EnumTeste";
+	public static final String ENUMERADORES = "EnumTeste";
 	
 	
 	
