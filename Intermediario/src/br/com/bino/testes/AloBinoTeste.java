@@ -14,6 +14,7 @@ public class AloBinoTeste extends TesteAbstract {
 	
 		if( testar ) {
 			System.out.println("Alo bino!!");
+			linha();
 		}
 		
 	}

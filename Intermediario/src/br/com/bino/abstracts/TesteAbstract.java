@@ -21,4 +21,12 @@ public abstract class TesteAbstract {
 		nomeTeste = pNomeTeste;
 	}
 	
+	public String getNomeTeste() {
+		return nomeTeste;
+	}
+	
+	public void linha() {
+		System.out.println("\n___________________________________________________\n");
+	}
+	
 }

@@ -5,8 +5,34 @@ public class TestesConstants {
 	/**
 	 * Constants padrão
 	 */
-	public static String GENERICO = "Generico";
-	public static String ABSTRACT = "TesteAbstract";
+	public static final String GENERICO = "Generico";
+	public static final String ABSTRACT = "TesteAbstract";
+	
+	
+	
+	/*
+	 * Implementação exemplo
+	 */
+	public static final String ALO_BINO = "AloBinoTeste";
+	
+	
+	
+	
+	/**
+	 * Abaixo, criar as constants para seus testes  
+	 */
+	
+	public static final String ENUMERADORES = "EnumTeste";
+	public static final String CLASSES_WRAPPERS = "ClasseWrapper";
+	public static final String IMPORT_STATIC = "BImportStatic";
+	public static final String ESCOPO_VARIAVEL = "EscopoVariavel";
+	public static final String PASSAGEM_PARAMETRO = "PassagemParametro";
+	public static final String VAR_ARGS = "BVarArg";
+	
+	
+	
+	
+	
 	
 	/**
 	 * Mantenha a constante abaixo como GENERICO
@@ -14,19 +40,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static String PADRAO = GENERICO;
-	
-	/*
-	 * Implementação exemplo
-	 */
-	public static String ALO_BINO = "AloBinoTeste";
-	
-	
-	/**
-	 * Abaixo, cria as constants para seus testes  
-	 */
-	
-	
+	public static final String PADRAO = VAR_ARGS;
 	
 	
 	
