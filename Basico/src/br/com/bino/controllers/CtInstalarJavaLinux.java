@@ -159,11 +159,26 @@ public class CtInstalarJavaLinux extends ObjetoTeste{
 	}
 	
 	public String quebraLinha(int qtde) {
-		return "\n".repeat(qtde);
+		
+		StringBuilder qLinha = new StringBuilder();
+		
+		for(int i=0;i<qtde;i++) {
+			qLinha.append("\n");
+		}
+		
+		return qLinha.toString();
+		
 	}
 	
 	public String tabular(int qtde) {
-		return "\t".repeat(qtde);
+		
+		StringBuilder tab = new StringBuilder();
+		
+		for(int i=0;i<qtde;i++) {
+			tab.append("\t");
+		}
+		
+		return tab.toString();
 	}
 	
 }

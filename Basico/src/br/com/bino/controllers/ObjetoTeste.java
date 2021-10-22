@@ -34,7 +34,14 @@ public class ObjetoTeste implements IfaceTeste {
 	}
 	
 	public String linhaDivisao(char pValor, char pRepetir) {
-		return String.valueOf(pValor).repeat(pRepetir);
+		
+		StringBuilder lin = new StringBuilder();
+		
+		for(int i=0;i<pRepetir;i++) {
+			lin.append( String.valueOf(pValor) );
+		}
+		
+		return lin.toString();
 	}
 	
 }
