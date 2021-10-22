@@ -34,7 +34,7 @@ public class Pessoa {
 		if( pLetra == 'm' || pLetra == 'M' ) {
 			genero = Genero.MASCULINO;
 		}else {
-			genero = Genero.MASCULINO;
+			genero = Genero.FEMININO;
 		}
 		
 	}

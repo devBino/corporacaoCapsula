@@ -9,6 +9,8 @@ import br.com.bino.repositories.enumeradores.Calculadora;
 import br.com.bino.repositories.enumeradores.DiaFimSemana;
 import br.com.bino.repositories.testes.Pessoa;
 
+import java.util.Random;
+
 public class EnumTeste extends TesteAbstract{
 
 	public EnumTeste() {
@@ -157,17 +159,29 @@ public class EnumTeste extends TesteAbstract{
 	 */
 	public void calculadoraEnum() {
 		
+		//Executando as operações da calculadora manualmente
 		Calculadora som = Calculadora.SOMA;
-		System.out.println( som + " => " + som.calcular(11.23,34.98) );
+		System.out.println( "Operação: " + som + " => " + som.calcular(11.23,34.98) );
 		
 		Calculadora sub = Calculadora.SUBTRACAO;
-		System.out.println(sub + " => " + sub.calcular(567.89,345.98));
+		System.out.println("Operação: " + sub + " => " + sub.calcular(567.89,345.98));
 		
 		Calculadora mul = Calculadora.MULTIPLICACAO;
-		System.out.println(mul + " => " + mul.calcular(9,9));
+		System.out.println("Operação: " + mul + " => " + mul.calcular(9,9));
 		
 		Calculadora div = Calculadora.DIVISAO;
-		System.out.println(div + " => " + div.calcular(81,9));
+		System.out.println("Operação: " + div + " => " + div.calcular(81,9));
+		
+		linha();
+		
+		//Executando as operações da calculadora dinamicamente
+		for(Calculadora c : Calculadora.values()) {
+		
+			Random n = new Random();
+			
+			System.out.println( "Operação: " + c.toString() + " => " + c.calcular(n.nextDouble(),n.nextDouble())  );
+			
+		}
 		
 		linha();
 	}
