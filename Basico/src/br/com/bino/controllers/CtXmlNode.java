@@ -1,5 +1,9 @@
 package br.com.bino.controllers;
 
+import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
+
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.XmlNodeRepository;
 
@@ -14,20 +18,48 @@ public class CtXmlNode extends ObjetoTeste {
 		
 		if( testar ) {
 			
-		
-			StringBuilder pXmlDocument = new StringBuilder();
-			pXmlDocument.append(getStringTest());
-			
-			XmlNodeRepository xml = new XmlNodeRepository(pXmlDocument);
-			
-			String newXml = xml.mudarPrefixoTags("DescricaoRps", "urn:");
-			
-			xml.setDocument(new StringBuilder(newXml));
-			
-			System.out.println( newXml );
+			exemploAddTags();
 			
 		}
 		
+	}
+	
+	public void exemploAddTags() {
+
+		//crio valor para atributo id
+		String strId = "imp_cofins";
+		
+		//primeiro adiciono a tagItem com um atributo
+		StringBuilder corpoXml = new StringBuilder("<testeCilada></testeCilada>");
+		XmlNodeRepository xml = new XmlNodeRepository(corpoXml);
+	
+		xml.addTag("nse0:Reg30Item", "testeCilada", null, strId);
+		
+		xml.setDocument(xml.getDocument());
+		
+		Map<String, Double> tagsFilhas = new HashMap<String, Double>();
+		
+		tagsFilhas.put("nfs0:TributoSigla", 1.00);
+		tagsFilhas.put("nfs0:TributoAliquota", 2.00);
+		tagsFilhas.put("nfs0:TributoValor",3.00);
+		
+		xml.addTags(tagsFilhas,"nse0:Reg30Item", strId);
+		
+		xml.removeAttr("nse0:Reg30Item", "Id");
+		
+	}
+	
+	public void exemploAddPrefixo() {
+		StringBuilder pXmlDocument = new StringBuilder();
+		pXmlDocument.append(getStringTest());
+		
+		XmlNodeRepository xml = new XmlNodeRepository(pXmlDocument);
+		
+		String newXml = xml.mudarPrefixoTags("DescricaoRps", "urn:");
+		
+		xml.setDocument(new StringBuilder(newXml));
+		
+		System.out.println( newXml );
 	}
 	
 	public static String getStringTest() {

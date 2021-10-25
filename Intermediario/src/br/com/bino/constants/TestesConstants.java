@@ -30,6 +30,7 @@ public class TestesConstants {
 	public static final String VAR_ARGS = "BVarArg";
 	public static final String FORMATO_PRINTF = "FormatoPrintf";
 	public static final String CLASSE_ANINHADA = "ClasseAninhada";
+	public static final String STR_FORMAT = "StrFormat";
 	
 	
 	
@@ -42,7 +43,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = CLASSE_ANINHADA;
+	public static final String PADRAO = STR_FORMAT;
 	
 	
 	

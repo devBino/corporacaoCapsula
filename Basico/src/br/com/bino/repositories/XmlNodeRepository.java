@@ -13,6 +13,8 @@ import org.xml.sax.InputSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.Writer;
+import java.util.Map;
+import java.util.Random;
 import java.io.StringWriter;
 import java.io.StringReader;
 
@@ -143,6 +145,81 @@ public class XmlNodeRepository {
 			
 		}
 				
+	}
+	
+	/**
+	 * @param pTagFilha String - A nova Tag que será adicionada no Documento Xml
+	 * @param pTagPai String - A Tag pai de pTagFilha, ou seja, um nível acima da Tag filha
+	 * @param pConteudo String - Caso queira iniciar a nova Tag com algum texto, passar uma String,
+	 *	se não, apenas passar null.
+	 */
+	public void addTag(String pTagFilha, String pTagPai, String pConteudo, 
+			String pAttr ) {
+		
+		NodeList nodeList = document.getElementsByTagName(pTagPai);
+		Node nodeTagPai = nodeList.item(0);
+		
+		if( nodeTagPai.getNodeType() == Node.ELEMENT_NODE ) {
+			
+			Element ePai = (Element) nodeTagPai;
+			Node nFilho = document.createElement(pTagFilha);
+			Element eFilho = (Element) nFilho;
+			
+			if( pAttr != null ) {
+				eFilho.setAttribute("Id", pAttr);
+			}
+			
+			if( pConteudo != null ) {
+				eFilho.setTextContent(pConteudo);
+				nFilho.setTextContent(pConteudo);
+			}
+			
+			ePai.appendChild(nFilho);
+			
+		}
+				
+	}
+	
+	public void addTags(Map<String,Double> pTagsFilhas, String pTagPai, String pIdTagPai) {
+		
+		NodeList listaTagPai = document.getElementsByTagName(pTagPai);
+
+		for( int i=0; i<listaTagPai.getLength(); i++ ) {
+			
+			Node nPai = listaTagPai.item(i);
+			Element ePai = (Element) nPai;
+			
+			if( nPai.getAttributes().item(0).getTextContent().equals(pIdTagPai)
+					&& ePai.getNodeType() == Node.ELEMENT_NODE ) {
+					
+				for(String tag : pTagsFilhas.keySet()) {
+					Node nFilho = document.createElement(tag);
+					Element eFilho = (Element) nFilho;
+					eFilho.setTextContent( String.valueOf( pTagsFilhas.get(tag) ) );
+					ePai.appendChild(eFilho);
+				}
+				
+			}
+			
+		}
+				
+	}
+	
+	/**
+	 * Recebe uma tag
+	 * @param pTag
+	 * @param pAttr
+	 */
+	public void removeAttr(String pTag, String pAttr) {
+		
+		NodeList listaNodes = document.getElementsByTagName(pTag);
+		
+		for(int i=0; i<listaNodes.getLength(); i++) {
+			Node node = listaNodes.item(i);
+			Element elem = (Element) node;
+			elem.removeAttribute(pAttr);
+		}
+		
 	}
 	
 	/**
