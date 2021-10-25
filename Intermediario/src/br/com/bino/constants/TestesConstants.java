@@ -28,6 +28,8 @@ public class TestesConstants {
 	public static final String ESCOPO_VARIAVEL = "EscopoVariavel";
 	public static final String PASSAGEM_PARAMETRO = "PassagemParametro";
 	public static final String VAR_ARGS = "BVarArg";
+	public static final String FORMATO_PRINTF = "FormatoPrintf";
+	public static final String CLASSE_ANINHADA = "ClasseAninhada";
 	
 	
 	
@@ -40,7 +42,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = VAR_ARGS;
+	public static final String PADRAO = CLASSE_ANINHADA;
 	
 	
 	
