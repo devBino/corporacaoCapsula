@@ -30,6 +30,7 @@ public class TestesConstants {
 	public static final String VAR_ARGS = "BVarArg";
 	public static final String FORMATO_PRINTF = "FormatoPrintf";
 	public static final String CLASSE_ANINHADA = "ClasseAninhada";
+	public static final String STR_FORMAT = "StrFormat";
 	
 	
 	
