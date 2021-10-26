@@ -6,6 +6,8 @@ import br.com.bino.constants.TestesConstants;
 import br.com.bino.exceptions.ConfigBusinessException;
 import br.com.bino.exceptions.MapTesteException;
 
+import br.com.bino.annotations.TesteMap;
+
 import java.io.File;
 import java.lang.Class;
 import java.util.ArrayList;
@@ -93,6 +95,9 @@ public class TesteProcessor {
 				String className = f.getName().replaceAll(".java","");
 				
 				Class c = Class.forName( Maps.PACKAGE_TESTES + className );
+				
+				//testes: verifica se existe anotação
+				boolean testaMap = c.isAnnotationPresent(TesteMap.class);
 				
 				//Verifica se é um teste padrão
 				if( TestesConstants.PADRAO.contains( className ) ) {
