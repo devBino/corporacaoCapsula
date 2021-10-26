@@ -25,7 +25,7 @@ public final class TestesConstants {
 	public static final String CASTING = "Casting - CtCasting";
 	public static final String TRATAMENTO_ERRORS = "Tratamento Erros - CtTratamentoErro";
 	
-	public static final String TESTE_PADRAO = XML_NODE;
+	public static final String TESTE_PADRAO = GENERICO;
 	
 	
 }
