@@ -1,11 +1,13 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 
 //exemplos de import static
 import static br.com.bino.constants.TestesConstants.IMPORT_STATIC;
 import static java.lang.Math.pow;
 
+@TesteMap(nomeTeste = IMPORT_STATIC, testar = true)
 public class BImportStatic extends TesteAbstract{
 
 	public BImportStatic() {
@@ -15,9 +17,7 @@ public class BImportStatic extends TesteAbstract{
 	@Override
 	public void teste() {
 
-		if( testar ) {
-			casoMath();
-		}
+		casoMath();
 		
 	}
 	

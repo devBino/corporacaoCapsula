@@ -1,8 +1,10 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 
+@TesteMap(nomeTeste = TestesConstants.CLASSES_WRAPPERS, testar = true)
 public class ClasseWrapper extends TesteAbstract {
 
 	public ClasseWrapper() {
@@ -20,18 +22,16 @@ public class ClasseWrapper extends TesteAbstract {
 		 * para o tipo primitivo
 		 */
 		
-		if( testar ) {
-			wByte();
-			wShort();
-			wInteger();
-			wLong();
-			wDouble();
-			wFloat();
-			wChar();
-			wBoolean();
-			particularidadesClassesWrappers();
-			boxing();
-		}
+		wByte();
+		wShort();
+		wInteger();
+		wLong();
+		wDouble();
+		wFloat();
+		wChar();
+		wBoolean();
+		particularidadesClassesWrappers();
+		boxing();
 		
 	}
 	

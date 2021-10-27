@@ -10,14 +10,20 @@
  *		apenas pequenos testes
  *		
  *		A lógica é simplis, o projeto permite que, sempre que 
- *		desejar fazer testes, por mais simplis que pareçam,
+ *		desejar fazer testes, por mais simplis que sejam,
  *		
- *		[1] Deverá ser implementado um teste padronizado br.com.bino.testes
+ *		[1] Deverá ser implementado um teste padronizado no pacote br.com.bino.testes
  *		[2] Este deve extender de br.com.bino.abstracts.TesteAbstract
  *		[3] Deverá criar em br.com.bino.constants.TestesConstants, uma constante padronizada, 
- *				com nome do novo teste recém criado
- *		[4] No metodo construtor do teste, setar o atributo nome do teste com a constant recém criada
- *		[5] No teste deverá ser sobreescrito o metodo public void teste() herdado de TesteAbstract		
+ *				com nome do novo teste recém criado, deve ser o próprio nome 
+ *				da classe de teste recém criada
+ *		[4] No metodo construtor do teste, setar o atributo nome 
+ *			do teste com a constant recém criada
+ *		[5] No teste deverá ser sobreescrito o metodo public void teste() herdado de TesteAbstract
+ *		[6] A classe de testes recém criada, deerá ser anotada assim
+ *			
+ *			@TesteMap(nomeTeste = TestesConstants.NOME_TESTE, testar = true)
+ *
  *		
  */
 package br.com.bino.app;

@@ -22,9 +22,9 @@ public @interface TesteMap{
 	
 	 //os atributos são definidos apenas pelo tipo e nome
 	String nomeTeste();
-	String tipo();
 	
 	//além disso os atributos podem ter valores default
+	String tipo() default "";
 	boolean testar() default false;
 	
 }

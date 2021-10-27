@@ -4,7 +4,6 @@ import br.com.bino.constants.TestesConstants;
 
 public abstract class TesteAbstract {
 
-	protected boolean testar;
 	protected String nomeTeste;
 	
 	public TesteAbstract() {
@@ -12,10 +11,6 @@ public abstract class TesteAbstract {
 	}
 	
 	public abstract void teste();
-	
-	public void setTestar(boolean pTestar) {
-		testar = pTestar;
-	}
 	
 	public void setNomeTeste(String pNomeTeste) {
 		nomeTeste = pNomeTeste;

@@ -43,7 +43,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = ANOTACAO;
+	public static final String PADRAO = GENERICO;
 	
 	
 	

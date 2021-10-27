@@ -1,10 +1,11 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
-
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.testes.EscopoVariavelRepository;
 
+@TesteMap(nomeTeste = TestesConstants.ESCOPO_VARIAVEL, testar = true)
 public class EscopoVariavel extends TesteAbstract {
 
 	public EscopoVariavel() {
@@ -14,10 +15,8 @@ public class EscopoVariavel extends TesteAbstract {
 	@Override
 	public void teste() {
 	
-		if( testar ) {
-			testeEscopo();
-			escopoBloco();
-		}
+		testeEscopo();
+		escopoBloco();
 		
 	}
 	

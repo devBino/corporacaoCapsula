@@ -1,9 +1,11 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.testes.Pessoa;
 
+@TesteMap(nomeTeste = TestesConstants.PASSAGEM_PARAMETRO, testar = true)
 public class PassagemParametro extends TesteAbstract {
 
 	public PassagemParametro() {
@@ -12,25 +14,21 @@ public class PassagemParametro extends TesteAbstract {
 	
 	@Override
 	public void teste() {
-	
-		if( testar ) {
-			
-			Pessoa p = new Pessoa("Homem de Ferro");
-			p.setGenero('M');
-			
-			int anos = 30;
-			
-			System.out.println(p.getNome() + " tem gênero " + p.getGenero());
-			
-			exemplo1(anos, p);
-			
-			System.out.println(p.getNome() + " tem gênero " + p.getGenero());
-			
-			exemplo2(anos, p);
-			
-			System.out.println(p.getNome() + " tem gênero " + p.getGenero());
-			
-		}
+		
+		Pessoa p = new Pessoa("Homem de Ferro");
+		p.setGenero('M');
+		
+		int anos = 30;
+		
+		System.out.println(p.getNome() + " tem gênero " + p.getGenero());
+		
+		exemplo1(anos, p);
+		
+		System.out.println(p.getNome() + " tem gênero " + p.getGenero());
+		
+		exemplo2(anos, p);
+		
+		System.out.println(p.getNome() + " tem gênero " + p.getGenero());
 		
 	}
 	

@@ -1,6 +1,7 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 
 import br.com.bino.repositories.enumeradores.DiaSemana;
@@ -11,6 +12,7 @@ import br.com.bino.repositories.testes.Pessoa;
 
 import java.util.Random;
 
+@TesteMap(nomeTeste = TestesConstants.ENUMERADORES, testar = true)
 public class EnumTeste extends TesteAbstract{
 
 	public EnumTeste() {
@@ -20,15 +22,13 @@ public class EnumTeste extends TesteAbstract{
 	@Override
 	public void teste() {
 	
-		if( testar ) {
-			enumDiaSemanas();
-			enumDiaFimSemana();
-			enumGeneroPessoa();
-			exibirValoresEnum();
-			recuperaValorDoEnum();
-			enumComMetodosAbstratos();
-			calculadoraEnum();
-		}
+		enumDiaSemanas();
+		enumDiaFimSemana();
+		enumGeneroPessoa();
+		exibirValoresEnum();
+		recuperaValorDoEnum();
+		enumComMetodosAbstratos();
+		calculadoraEnum();
 		
 	}
 	

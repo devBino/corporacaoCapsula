@@ -12,6 +12,8 @@ import java.io.File;
 import java.lang.Class;
 import java.util.ArrayList;
 
+import java.lang.annotation.Annotation;
+
 public class TesteProcessor {
 
 	/**
@@ -97,17 +99,30 @@ public class TesteProcessor {
 				Class c = Class.forName( Maps.PACKAGE_TESTES + className );
 				
 				//testes: verifica se existe anotação
-				boolean testaMap = c.isAnnotationPresent(TesteMap.class);
+				boolean anPresent = c.isAnnotationPresent(TesteMap.class);
 				
-				//Verifica se é um teste padrão
-				if( TestesConstants.PADRAO.contains( className ) ) {
+				//verifica se a classe de teste está anotada com @TesteMap
+				if( !anPresent ) {
+					continue;
+				}
+				
+				//verifica se classe deve ser testada
+				Annotation objAnTesteMap = c.getAnnotation(TesteMap.class);
+				TesteMap anTesteMap = (TesteMap) objAnTesteMap;
+				
+				if( !anTesteMap.testar() ) {
+					continue;
+				}
 					
+				//Verifica a classe teste está anotada como teste padrão	
+				if( anTesteMap.nomeTeste().equals(TestesConstants.PADRAO) ) {
+				
 					testes.add( (TesteAbstract) c.newInstance() );
 					break;
-				
-				//Se não for teste padrão e for teste genérico
-				}else if( !TestesConstants.PADRAO.contains( className )
-						&& TestesConstants.PADRAO.equals(TestesConstants.GENERICO) ) {
+					
+				//caso a classe teste não seja teste padrão, será teste genérico, para todas as classes
+				}else if( !anTesteMap.nomeTeste().equals(TestesConstants.PADRAO) 
+						&& TestesConstants.PADRAO.equals(TestesConstants.GENERICO)) {
 				
 					testes.add( (TesteAbstract) c.newInstance() );
 					
@@ -140,10 +155,7 @@ public class TesteProcessor {
 	public static void aplicarTestes(ArrayList<TesteAbstract> pTestes) {
 		
 		for( TesteAbstract t : pTestes ) {
-			
-			t.setTestar(true);
 			t.teste();
-			
 		}
 		
 	}

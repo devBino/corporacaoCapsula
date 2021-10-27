@@ -1,8 +1,10 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 
+@TesteMap(nomeTeste = TestesConstants.STR_FORMAT, testar = true)
 public class StrFormat extends TesteAbstract {
 
 	public StrFormat() {
@@ -12,9 +14,7 @@ public class StrFormat extends TesteAbstract {
 	@Override
 	public void teste() {
 	
-		if( testar ) {
-			exemplo1();
-		}
+		exemplo1();
 		
 	}
 	

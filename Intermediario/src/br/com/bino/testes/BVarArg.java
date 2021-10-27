@@ -1,8 +1,10 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 
+@TesteMap(nomeTeste = TestesConstants.VAR_ARGS, testar = true)
 public class BVarArg extends TesteAbstract {
 
 	public BVarArg() {
@@ -12,9 +14,7 @@ public class BVarArg extends TesteAbstract {
 	@Override
 	public void teste() {
 		
-		if( testar ) {
-			exemploVarArgs();
-		}
+		exemploVarArgs();
 		
 	}
 	

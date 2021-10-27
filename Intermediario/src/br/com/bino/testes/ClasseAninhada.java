@@ -1,12 +1,14 @@
 package br.com.bino.testes;
 
 import br.com.bino.abstracts.TesteAbstract;
+import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.ifaces.Texto;
 import br.com.bino.repositories.classaninhada.Externa;
 import br.com.bino.repositories.classaninhada.Externa.Interna;
 import br.com.bino.repositories.classaninhada.Anonima;
 
+@TesteMap(nomeTeste = TestesConstants.CLASSE_ANINHADA, testar = true)
 public class ClasseAninhada extends TesteAbstract{
 
 	public ClasseAninhada() {
@@ -15,13 +17,11 @@ public class ClasseAninhada extends TesteAbstract{
 	
 	@Override
 	public void teste() {
-		
-		if(testar) {
-			classeAninhadaInterna();
-			classeLocal();
-			classeAnonima();
-			interfaceComoClasseAnonima();
-		}
+	
+		classeAninhadaInterna();
+		classeLocal();
+		classeAnonima();
+		interfaceComoClasseAnonima();
 		
 	}
 	
