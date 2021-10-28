@@ -153,7 +153,7 @@ public class XmlNodeRepository {
 	 * @param pConteudo String - Caso queira iniciar a nova Tag com algum texto, passar uma String,
 	 *	se não, apenas passar null.
 	 */
-	public void addTag(String pTagFilha, String pTagPai, String pConteudo, 
+	public void addTagAttr(String pTagFilha, String pTagPai, String pConteudo, 
 			String pAttr ) {
 		
 		NodeList nodeList = document.getElementsByTagName(pTagPai);

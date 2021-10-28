@@ -33,7 +33,7 @@ public class CtXmlNode extends ObjetoTeste {
 		StringBuilder corpoXml = new StringBuilder("<testeCilada></testeCilada>");
 		XmlNodeRepository xml = new XmlNodeRepository(corpoXml);
 	
-		xml.addTag("nse0:Reg30Item", "testeCilada", null, strId);
+		xml.addTagAttr("nse0:Reg30Item", "testeCilada", null, strId);
 		
 		xml.setDocument(xml.getDocument());
 		
