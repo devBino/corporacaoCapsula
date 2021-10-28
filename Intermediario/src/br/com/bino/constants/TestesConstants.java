@@ -32,7 +32,8 @@ public class TestesConstants {
 	public static final String CLASSE_ANINHADA = "ClasseAninhada";
 	public static final String STR_FORMAT = "StrFormat";
 	public static final String ANOTACAO = "Anotacao"; 
-	
+	public static final String COLETOR_LIXO = "ColetorLixo";
+	public static final String PROCESSO = "Processo";
 	
 	
 	
@@ -43,7 +44,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = GENERICO;
+	public static final String PADRAO = PROCESSO;
 	
 	
 	

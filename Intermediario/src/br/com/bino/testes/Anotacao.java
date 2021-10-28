@@ -4,7 +4,7 @@ import br.com.bino.abstracts.TesteAbstract;
 import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 
-@TesteMap(nomeTeste = TestesConstants.ANOTACAO, testar = true)
+@TesteMap(nomeTeste = TestesConstants.ANOTACAO)
 public class Anotacao extends TesteAbstract {
 
 	public Anotacao() {

@@ -98,7 +98,7 @@ public class TesteProcessor {
 				
 				Class c = Class.forName( Maps.PACKAGE_TESTES + className );
 				
-				//testes: verifica se existe anotação
+				//verifica se existe anotação
 				boolean anPresent = c.isAnnotationPresent(TesteMap.class);
 				
 				//verifica se a classe de teste está anotada com @TesteMap
