@@ -30,7 +30,7 @@ package br.com.bino.app;
 
 import br.com.bino.processor.TesteProcessor;
 
-public class Start {
+public class StartJavaIntermediario {
 
 	public static void main(String[] args) {
 		
