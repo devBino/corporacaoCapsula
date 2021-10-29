@@ -32,7 +32,7 @@ public class TestesConstants {
 	public static final String CLASSE_ANINHADA = "ClasseAninhada";
 	public static final String STR_FORMAT = "StrFormat";
 	public static final String ANOTACAO = "Anotacao"; 
-	public static final String COLETOR_LIXO = "ColetorLixo";
+	public static final String BCOLETOR_LIXO = "ColetorLixo";
 	public static final String PROCESSO = "Processo";
 	
 	

@@ -5,13 +5,13 @@ import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.testes.Pessoa;
 
-@TesteMap(nomeTeste = TestesConstants.COLETOR_LIXO, testar = true)
-public class ColetorLixo extends TesteAbstract {
+@TesteMap(nomeTeste = TestesConstants.BCOLETOR_LIXO, testar = true)
+public class BColetorLixo extends TesteAbstract {
 
 	private final int MG;
 	
-	public ColetorLixo() {
-		super.setNomeTeste(TestesConstants.COLETOR_LIXO);
+	public BColetorLixo() {
+		super.setNomeTeste(TestesConstants.BCOLETOR_LIXO);
 		MG = 1024 * 1024;
 	}
 	
