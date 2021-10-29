@@ -6,6 +6,7 @@ import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.processos.MyThread;
 import br.com.bino.repositories.processos.ProcessaDocumento;
 import br.com.bino.repositories.processos.ThreadCorrida;
+import br.com.bino.repositories.processos.Calculo;
 import br.com.bino.repositories.processos.LeituraNome;
 
 @TesteMap(nomeTeste = TestesConstants.PROCESSO, testar = true)
@@ -31,6 +32,9 @@ public class Processo extends TesteAbstract {
 		linha();
 		
 		threadCustomizada();
+		linha();
+		
+		prioridadesThreads();
 		linha();
 		
 	}
@@ -151,6 +155,45 @@ public class Processo extends TesteAbstract {
 		}
 		
 		System.out.println("Todos os documentos foram processados...");
+		
+	}
+	
+	/**
+	 * Sempre que instanciamos uma nova Thread passando qualquer classe
+	 * que implementa interface Runnable, podemos para essa nova instancia de 
+	 * Thread, utilizar o método setPriotity(), esse método pode receber
+	 * valore de 1 a 10. E quanto maior o valor passado, maior a prioridade de 
+	 * execução da Thread.
+	 */
+	public void prioridadesThreads() {
+		
+		int valores1[] = {10,20,45,66,54,23,44,3};
+		int valores2[] = {5,10,25,36,44,55,74,6};
+		
+		//instancias da classe Calculo que implementa Runnable
+		Calculo som = new Calculo(valores1, valores2, '+');
+		Calculo sub = new Calculo(valores1, valores2, '-');
+		Calculo mul = new Calculo(valores1, valores2, '*');
+		
+		//setando a prioridade na instancia de Thread dentro da classe Calculo
+		mul.getProcesso().setPriority(10);
+		som.getProcesso().setPriority(5);
+		sub.getProcesso().setPriority(3);
+		
+		//iniciando processo de calculo
+		sub.calcular();
+		som.calcular();
+		mul.calcular();
+		
+		try {
+			som.getProcesso().join();
+			sub.getProcesso().join();
+			mul.getProcesso().join();
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("Todos os calculos foram finalizados...");
 		
 	}
 	
