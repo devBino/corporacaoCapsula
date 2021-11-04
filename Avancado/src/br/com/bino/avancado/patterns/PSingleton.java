@@ -14,7 +14,12 @@ public class PSingleton extends AbstractPattern {
 	
 	@Override
 	public void callPattern() {
-	
+		super.callPattern();
+	}
+
+	@Override
+	public void badCode() {
+		
 		/**
 		 * Here, we have the problem because there's two
 		 * ConnectionDBFake instances. So, it's a problem
@@ -26,6 +31,11 @@ public class PSingleton extends AbstractPattern {
 		
 		System.out.println(con1);
 		System.out.println(con2);
+		
+	}
+	
+	@Override
+	public void cleanCode() {
 		
 		/**
 		 * Here, we have a simple Singleton Pattern exemplo.
@@ -42,5 +52,6 @@ public class PSingleton extends AbstractPattern {
 		System.out.println(con20);
 		
 	}
+	 
 	
 }

@@ -10,7 +10,13 @@ public abstract class AbstractPattern {
 		patternName = Constants.GENERIC;
 	}
 	
-	public abstract void callPattern();
+	public void callPattern() {
+		badCode();
+		cleanCode();
+	}
+	
+	public abstract void badCode();
+	public abstract void cleanCode();
 	
 	public void setPatternName(String pName) {
 		patternName = pName;
