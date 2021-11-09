@@ -5,6 +5,7 @@ import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.processos.MyThread;
 import br.com.bino.repositories.processos.ProcessaDocumento;
+import br.com.bino.repositories.processos.SomaProcesso;
 import br.com.bino.repositories.processos.ThreadCorrida;
 import br.com.bino.repositories.processos.Calculo;
 import br.com.bino.repositories.processos.LeituraNome;
@@ -37,25 +38,28 @@ public class Processo extends TesteAbstract {
 		prioridadesThreads();
 		linha();
 		
+		sincronizedThreads();
+		linha();
+		
 	}
 	
 	public void myThread() {
 		
-		MyThread t1 = new MyThread("#1",false,250);
+		MyThread t1 = new MyThread("#1",false,100);
 		t1.start();
 		
-		MyThread t2 = new MyThread("#2", true,500);
+		MyThread t2 = new MyThread("#2", true,200);
 		
 	}
 	
 	public void myThreadRunnable() {
 		
-		ThreadCorrida palio = new ThreadCorrida("#palio", 250, false);
+		ThreadCorrida palio = new ThreadCorrida("#palio", 100, false);
 		
 		Thread t1 = new Thread(palio);
 		t1.start();
 		
-		ThreadCorrida celta = new ThreadCorrida("#celta", 450, true);
+		ThreadCorrida celta = new ThreadCorrida("#celta", 150, true);
 		
 	}
 
@@ -72,9 +76,9 @@ public class Processo extends TesteAbstract {
 	 */
 	public void lerNomes() {
 		
-		LeituraNome l1 = new LeituraNome("fernando bino machado", 250);
+		LeituraNome l1 = new LeituraNome("fernando bino machado", 100);
 		LeituraNome l2 = new LeituraNome("julio cesar bino machado", 150);
-		LeituraNome l3 = new LeituraNome("dorli aparecida bino", 200);
+		LeituraNome l3 = new LeituraNome("dorli aparecida bino", 100);
 		
 		Thread t1 = new Thread(l1);
 		Thread t2 = new Thread(l2);
@@ -103,14 +107,14 @@ public class Processo extends TesteAbstract {
 	 */
 	public void lerNome() {
 		
-		LeituraNome l1 = new LeituraNome("Fernando bino machado", 200);
+		LeituraNome l1 = new LeituraNome("Fernando bino machado", 100);
 		Thread t1 = new Thread(l1);
 		
 		t1.start();
 		
 		try {
 			while(t1.isAlive()) {
-				Thread.sleep(500);
+				Thread.sleep(300);
 			}
 		}catch(InterruptedException e) {
 			e.printStackTrace();
@@ -197,6 +201,12 @@ public class Processo extends TesteAbstract {
 		
 	}
 	
+	public void sincronizedThreads() {
+		
+		SomaProcesso s1 = new SomaProcesso("#Soma 1", new int[] {1,2,3,4,5});
+		SomaProcesso s2 = new SomaProcesso("#Soma 2", new int[] {1,2,3,4,5});
+		
+	}
 	
 	
 }

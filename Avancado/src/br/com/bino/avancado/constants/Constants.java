@@ -7,7 +7,8 @@ public class Constants {
 	public static final String GENERIC = "Generic";
 	public static final String P_BUILDER = "PBuilder";
 	public static final String P_SINGLETON = "PSingleton";
+	public static final String P_FACTORY_METHOD = "PFactoryMethod";
 	
-	public static final String ACTIVE_PATTERN = P_BUILDER;  
+	public static final String ACTIVE_PATTERN = GENERIC;  
 	
 }
