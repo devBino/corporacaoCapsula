@@ -5,8 +5,12 @@ import br.com.bino.annotations.TesteMap;
 import br.com.bino.constants.TestesConstants;
 import br.com.bino.repositories.processos.MyThread;
 import br.com.bino.repositories.processos.ProcessaDocumento;
+import br.com.bino.repositories.processos.ProcessaNumeros;
+import br.com.bino.repositories.processos.ProcessoTicTac;
 import br.com.bino.repositories.processos.SomaProcesso;
 import br.com.bino.repositories.processos.ThreadCorrida;
+import br.com.bino.repositories.processos.TicTac;
+import br.com.bino.repositories.processos.semaforo.ProcessoSemaforo;
 import br.com.bino.repositories.processos.Calculo;
 import br.com.bino.repositories.processos.LeituraNome;
 
@@ -39,6 +43,15 @@ public class Processo extends TesteAbstract {
 		linha();
 		
 		sincronizedThreads();
+		linha();
+		
+		notifyAwaitThreads();
+		linha();
+		
+		stopResumeThreads();
+		linha();
+		
+		semaforo();
 		linha();
 		
 	}
@@ -201,10 +214,79 @@ public class Processo extends TesteAbstract {
 		
 	}
 	
+	/**
+	 * Quando varias Threads tentam acessar um mesmo recurso
+	 * é importante utilizar blocos de código sincronizados
+	 */
 	public void sincronizedThreads() {
 		
 		SomaProcesso s1 = new SomaProcesso("#Soma 1", new int[] {1,2,3,4,5});
 		SomaProcesso s2 = new SomaProcesso("#Soma 2", new int[] {1,2,3,4,5});
+		
+	}
+	
+	/**
+	 * Uma Thread pode bloquear o uso de determinado recurso,
+	 * assim é importante utilizar blocos de código sincronizados
+	 * além de saber utilizar as instruções notify e await
+	 */
+	public void notifyAwaitThreads() {
+		
+		TicTac tt = new TicTac();
+		
+		ProcessoTicTac tique = new ProcessoTicTac("# Tique", tt);
+		ProcessoTicTac taque = new ProcessoTicTac("# Taque", tt);
+		
+		try {
+			tique.getProcesso().join();
+			taque.getProcesso().join();
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public void stopResumeThreads() {
+		
+		ProcessaNumeros p1 = new ProcessaNumeros("# N1");
+		ProcessaNumeros p2 = new ProcessaNumeros("# N2");
+		
+		//p1.stop();
+		//p2.stop();
+		
+		p1.suspend();
+		
+		try {
+			Thread.sleep(2000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		p2.suspend();
+		
+		p1.resume();
+		
+		try {
+			Thread.sleep(3000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		p2.resume();
+		
+	}
+	
+	public void semaforo() {
+		
+		ProcessoSemaforo sem = new ProcessoSemaforo();
+				
+		for( int i=0; i<(3*4); i++ ) {
+			System.out.println( sem.getCor() );
+			sem.esperaMudarCor();
+		}
+		
+		sem.pararSemaforo();
 		
 	}
 	

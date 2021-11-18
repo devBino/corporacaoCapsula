@@ -34,7 +34,8 @@ public class TestesConstants {
 	public static final String ANOTACAO = "Anotacao"; 
 	public static final String BCOLETOR_LIXO = "ColetorLixo";
 	public static final String PROCESSO = "Processo";
-	
+	public static final String BSTRING = "BString";
+	public static final String CLASSE_UTILITARIA = "ClasseUtilitaria";
 	
 	
 	
@@ -44,7 +45,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = PROCESSO;
+	public static final String PADRAO = CLASSE_UTILITARIA;
 	
 	
 	
