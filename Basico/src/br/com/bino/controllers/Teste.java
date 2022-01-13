@@ -14,7 +14,7 @@ public class Teste {
 	
 	public static void runTestes() {
 		
-		String teste = TestesConstants.XML_NODE;
+		String teste = TestesConstants.GENERICO;
 		
 		if( teste.equals(TestesConstants.GENERICO) ) {
 			testeGenerico();

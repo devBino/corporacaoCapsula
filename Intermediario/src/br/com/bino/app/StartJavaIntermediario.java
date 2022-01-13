@@ -34,6 +34,11 @@ public class StartJavaIntermediario {
 
 	public static void main(String[] args) {
 		
+		/**
+		 * @see
+		 * https://www.youtube.com/watch?v=1JPzS9vitYw&list=PLGxZ4Rq3BOBoqYyFWOV_YbfBW80YGAGEI&index=43&ab_channel=LoianeGroner 
+		 */
+		
 		try {
 			TesteProcessor.runTestes();
 		}catch(Exception e) {
