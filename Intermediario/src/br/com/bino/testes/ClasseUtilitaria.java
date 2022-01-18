@@ -1,10 +1,21 @@
 package br.com.bino.testes;
 
+import java.util.Set;
+
 import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.time.Period;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,11 +36,43 @@ public class ClasseUtilitaria extends TesteAbstract {
 	public void teste() {
 		
 		testeClasseMath();
+		linha();
+		
 		testeClassesData();
+		linha();
+		
 		testeComparaDatas();
+		linha();
+		
 		testeSimpleDateFormat();
+		linha();
+		
 		testeDateFormat();
+		linha();
+		
 		testeTimeZone();
+		linha();
+		
+		testeLocalDate();
+		linha();
+		
+		testeLocalTime();
+		linha();
+		
+		testeLocalDateTime();
+		linha();
+		
+		testeFusos();
+		linha();
+		
+		testeConvesaoObjetosDataAntigosParaAtuais();
+		linha();
+		
+		testeDifDatasDate();
+		linha();
+		
+		testeDifDatasLocalDate();
+		linha();
 		
 	}
 	
@@ -211,5 +254,156 @@ public class ClasseUtilitaria extends TesteAbstract {
 				
 	}
 	
+	public void testeLocalDate() {
+		
+		LocalDate hoje = LocalDate.now();
+		System.out.println(hoje);
+		
+		System.out.println(LocalDate.of(2022, 1, 17));
+		System.out.println(LocalDate.parse("2022-01-17"));
+		
+		System.out.println( hoje.plusDays(156) );
+		System.out.println( hoje.minusDays(160) );
+		System.out.println( hoje.plusMonths(18) );
+		System.out.println( hoje.minus(18, ChronoUnit.MONTHS) );
+		System.out.println( hoje.getDayOfWeek() );
+		System.out.println( hoje.getDayOfMonth() );
+		System.out.println( hoje.getDayOfYear() );
+		System.out.println( hoje.isLeapYear() );
+		
+	}
+	
+	public void testeLocalTime() {
+		
+		LocalTime agora = LocalTime.now();
+		System.out.println( agora );
+		
+		System.out.println( LocalTime.of(20,34,45) );
+		System.out.println( LocalTime.parse("19:34:54") );
+		
+		System.out.println( agora.plusMinutes(45) );
+		System.out.println( agora.plusSeconds(245) );
+		System.out.println( agora.plusHours(2) );
+		
+		System.out.println( agora.minusHours(4) );
+		System.out.println( agora.plus(35, ChronoUnit.MINUTES) );
+		
+		System.out.println( agora.getHour() );
+		System.out.println( agora.getMinute() );
+		
+		
+	}
+	
+	public void testeLocalDateTime() {
+		
+		LocalDateTime agora = LocalDateTime.now();
+		System.out.println(agora);
+		
+		System.out.println( LocalDateTime.of(2022,1,17,20,16,45) );
+		System.out.println( LocalDateTime.parse("2022-01-17T20:16:45") );
+		
+		System.out.println( agora.plusSeconds(30) );
+		System.out.println( agora.plusMinutes(10) );
+		System.out.println( agora.plusHours(2) );
+		System.out.println( agora.plusDays(1) );
+		System.out.println( agora.plusWeeks(2) );
+		System.out.println( agora.plusMonths(3) );
+		System.out.println( agora.plusYears(2) );
+		
+		System.out.println( agora.minus(1,ChronoUnit.YEARS) );
+		
+		System.out.println( agora.getMinute() );
+		System.out.println( agora.getDayOfYear() );
+		
+		
+	}
+	
+	public void testeFusos() {
+		
+		ZoneId fuso = ZoneId.systemDefault();
+		System.out.println( fuso );
+		
+		Set<String> fusos = ZoneId.getAvailableZoneIds();
+		
+		for(String f : fusos){
+			System.out.println(f);
+			System.out.println( ZoneId.of(f) );
+		}
+		
+		ZoneId znSp = ZoneId.of("America/Sao_Paulo");
+		System.out.println(znSp);
+		
+	}
+	
+	/**
+	 * As vezes será necessário converter datas de bibliotecas mais antigas 
+	 * para datas em bibliotecas mais modernas
+	 */
+	public void testeConvesaoObjetosDataAntigosParaAtuais() {
+		
+		Date dt1 = new Date();
+		Calendar c1 = Calendar.getInstance();
+		
+		System.out.println( dt1 );
+		System.out.println( c1 );
+		
+		LocalDateTime cv1 = LocalDateTime.ofInstant(dt1.toInstant(), ZoneId.systemDefault());
+		LocalDateTime cv2 = LocalDateTime.ofInstant(c1.toInstant(), ZoneId.systemDefault());
+		
+		System.out.println( cv1 );
+		System.out.println( cv2 );
+		
+	}
+	
+	/**
+	 * Calculando diferença com Date,
+	 * maneira antiga
+	 */
+	public void testeDifDatasDate() {
+		
+		SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			
+			Date dt1 = fmt.parse("01/01/2022");
+			Date dt2 = fmt.parse("10/01/2022");
+			
+			long diffMls = Math.abs(dt1.getTime() - dt2.getTime());
+			
+			long dias = TimeUnit.DAYS.convert(diffMls, TimeUnit.MILLISECONDS);
+			
+			System.out.println( dias );
+			
+		}catch(ParseException err) {
+			err.printStackTrace();
+		}
+		
+	}
+	
+	public void testeDifDatasLocalDate() {
+		
+		LocalDate dt1 = LocalDate.of(2022, 1, 1);
+		LocalDate dt2 = LocalDate.of(2022,2,1);
+		
+		Period periodo = Period.between(dt1, dt2);
+		
+		System.out.println( periodo.getDays() );
+		System.out.println( periodo.getMonths() );
+		System.out.println( periodo.getYears() );
+		
+	}
+	
+	public void testeDifTempo() {
+		
+		LocalDateTime dt1 = LocalDateTime.of(2022,1,1,1,0,0);
+		LocalDateTime dt2 = LocalDateTime.of(2022,1,1,5,56,34);
+		
+		Duration d = Duration.between(dt1, dt2);
+		
+		System.out.println( d.toHours() );
+		System.out.println( d.toMinutes() );
+		System.out.println( d.toSeconds() );
+		
+	}
 	
 }
