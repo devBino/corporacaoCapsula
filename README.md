@@ -1,4 +1,4 @@
-# Java Básico - Intermediário - Avançado &#128512; &#128512;.
+# Java Básico - Intermediário - Avançado &#129299; &#129299; &#129299;
 
 <p align="justify">O presente projeto contando com um histórico de commits, mostra um momento de evolução e documentação de conhecimentos na linguagem Java.</p>
 
@@ -27,7 +27,7 @@
   
   A annotation se @TesteMap, inspirado em @RequestMapping de um framework famoso em Java...
   
-  Assim quando o método runTestes em TesteProcessor estiver sendo executado, para cada classe encontrada dentro de testes, está só será adicionada a lista de testes válidos, se estiver anotada com @TesteMap (minha própria anotação &#128512; &#128512; &#128512; &#128512; &#128512;) <br>
+  Assim quando o método runTestes em TesteProcessor estiver sendo executado, para cada classe encontrada dentro de testes, está só será adicionada a lista de testes válidos, se estiver anotada com @TesteMap (minha própria anotação &#129299; &#129299; &#129299; ) <br>
   
   Além disso, olhando para anotação @TesteMap, o método runTestes em TesteProcessor irá verificar também se o elemento testar da anotação está com valor true, caso não esteja, a classe do respectivo teste também não será considerada. <br>
   
