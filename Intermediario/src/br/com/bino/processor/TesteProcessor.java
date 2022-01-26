@@ -55,7 +55,7 @@ public class TesteProcessor {
 			if(testes.size() == 0) {
 				
 				msgErro.append("Erro de implementação: \n");
-				msgErro.append("\tCertifique se de que existem testes implementados em: ");
+				msgErro.append("\tCertifique se de que existem testes implementados e corretamente anotados em: ");
 				msgErro.append("\t\n\t");
 				msgErro.append( Maps.PATH_TESTES );
 				
