@@ -13,7 +13,7 @@
   para o novo assunto, depois o controller Teste irá através da constante criada, chamar o respectivo controller,
   que deverá ser criado seguindo algumas regras, ele deverá extender a classe ObjetoTeste que por sua vez implementa a interface IfaceTeste.
   
-  <b>
+  <br>
     
   Assim cada novo controller deverá implementar os métodos em IfaceTeste. Por isso o método teste() deverá aparecer em todos os novos controllers,
   e nesse método teste(), é que vamos implementar nossos testes relacionados ao novos assuntos.
