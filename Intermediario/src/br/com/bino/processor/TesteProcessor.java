@@ -78,7 +78,7 @@ public class TesteProcessor {
 	}
 	
 	/**
-	 * Recupera os testes implementados no pacote controllers
+	 * Recupera os testes implementados no pacote testes
 	 * 
 	 * @return ArrayList<TesteAbstract> testes = lista de testes implementados mapeados
 	 * @throws MapTesteException
