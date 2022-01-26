@@ -1,8 +1,8 @@
 # Java Básico - Intermediário - Avançado.
 
-<p>O presente projeto contando com um histórico de commits, mostra um momento de evolução e documentação de conhecimentos na linguagem Java.</b>
+<p>O presente projeto contando com um histórico de commits, mostra um momento de evolução e documentação de conhecimentos na linguagem Java.</p>
 
-<b>Em três níveis, o projeto se propôs a documentar minha base em Java, dessa forma segue um breve resumo dos que foi experimentado e assimilado nos 3 níveis, e que
+<p>Em três níveis, o projeto se propôs a documentar minha base em Java, dessa forma segue um breve resumo dos que foi experimentado e assimilado nos 3 níveis, e que
   ainda está em processo de evolução contínua:</p>
   
 <ul>
