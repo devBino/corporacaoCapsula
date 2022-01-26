@@ -25,9 +25,9 @@
   
   Uma diferença aqui em relação ao projeto básico, é o uso de annotations, e criando minhas próprias annotations, e não contente, verificando seus valores nas classes em tempo de execução. Dessa forma foi possível criar um mecanismo semelhante aos frameworks que utilizam annotations.<br>
   
-  A annotation se @TesteMap, inspirado em @RequestMapping de um framework famoso em Java...
+  Por exemplo annotation @TesteMap (minha própria anotação &#129299; &#129299; &#129299; ), inspirada em @RequestMapping de um framework famoso em Java...
   
-  Assim quando o método runTestes em TesteProcessor estiver sendo executado, para cada classe encontrada dentro de testes, está só será adicionada a lista de testes válidos, se estiver anotada com @TesteMap (minha própria anotação &#129299; &#129299; &#129299; ) <br>
+  Quando o método runTestes em TesteProcessor estiver sendo executado, para cada classe encontrada dentro de testes, está só será adicionada a lista de testes válidos, se estiver anotada com @TesteMap <br>
   
   Além disso, olhando para anotação @TesteMap, o método runTestes em TesteProcessor irá verificar também se o elemento testar da anotação está com valor true, caso não esteja, a classe do respectivo teste também não será considerada. <br>
   
