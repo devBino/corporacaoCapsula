@@ -56,10 +56,11 @@
   
 </p>
 
-<li><b>Intermediário</b></li>
+<li><b>Avançado</b></li>
 <br>
 <p align="justify">
-O projeto avançado seguiu a mesma lógica dos anteriores, foi uma evolução do intermediário, só que agora estamos produzindo patterns, onde cada classe implementada dentro de patterns, será um design pattern.
+O projeto avançado seguiu a mesma lógica dos anteriores, foi uma evolução do intermediário, só que agora estamos produzindo patterns, onde cada classe implementada dentro de patterns, será um design pattern, e tambem deverá ser anotada de tal forma que existe uma classe PatternProcessor, para processar todos
+  os patterns implementados.
 
-Mais detalhes ainda serão fornecidos...
+Em resumo, já foram implementados 3 padrões de projeto, a saber Builder, Factory e Singlenton, porém mais detalhes ainda serão fornecidos sobre o projeto avançado...
 </p>
