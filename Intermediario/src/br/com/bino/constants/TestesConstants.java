@@ -37,6 +37,9 @@ public class TestesConstants {
 	public static final String BSTRING = "BString";
 	public static final String CLASSE_UTILITARIA = "ClasseUtilitaria";
 	public static final String RS_BUNDLE = "RsBundle";
+	public static final String FORMATA_NUMEROS = "FormataNumeros";
+	public static final String CLASSES_PRECISAO_NUMERICA = "ClassesPrecisaoNumerica";
+	public static final String TESTE_JAR = "TesteJar";
 	
 	
 	/**
@@ -45,7 +48,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = RS_BUNDLE;
+	public static final String PADRAO = TESTE_JAR;
 	
 	
 	
