@@ -11,13 +11,13 @@ public enum Erro {
 	E_404{
 		@Override
 		public String getError() {
-			return "E404 - Pattern not found";
+			return "E404 - Pattern not found...";
 		}
 	},
 	E_500{
 		@Override
 		public String getError() {
-			return "E500 - There's no pattern yet, or this pattern not exists";
+			return "E500 - An unknown error has occurred...";
 		}
 	};
 	

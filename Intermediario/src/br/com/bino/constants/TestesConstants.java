@@ -42,6 +42,7 @@ public class TestesConstants {
 	public static final String TESTE_JAR = "TesteJar";
 	public static final String TESTE_REGEX = "TesteRegex";
 	public static final String TESTE_LAMBDA = "TesteLambda";
+	public static final String TESTE_OPTIONAL = "TesteOptional";
 	
 	
 	/**
@@ -50,7 +51,7 @@ public class TestesConstants {
 	 * ou sete nela o valor do testes desejado
 	 * para passar apenas por esse teste
 	 */
-	public static final String PADRAO = TESTE_LAMBDA;
+	public static final String PADRAO = TESTE_OPTIONAL;
 	
 	
 	
