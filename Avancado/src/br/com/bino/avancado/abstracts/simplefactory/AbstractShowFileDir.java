@@ -1,4 +1,4 @@
-package br.com.bino.avancado.abstracts.showfiledir;
+package br.com.bino.avancado.abstracts.simplefactory;
 
 import br.com.bino.avancado.ifaces.fatory.ShowFileDir;
 

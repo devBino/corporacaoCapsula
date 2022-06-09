@@ -5,9 +5,12 @@ import br.com.bino.avancado.annotations.PatternMap;
 import br.com.bino.avancado.constants.Constants;
 
 import br.com.bino.avancado.repositories.builder.ContactBuilder;
+import br.com.bino.avancado.repositories.builder.BasicWindowFakeBuilder;
 import br.com.bino.avancado.repositories.builder.Contact;
 import br.com.bino.avancado.repositories.builder.Phone;
+import br.com.bino.avancado.repositories.builder.WindowFake;
 import br.com.bino.avancado.repositories.builder.Email;
+import br.com.bino.avancado.repositories.builder.FullWindowFakeBuilder;
 
 @PatternMap(patternName = Constants.P_BUILDER, call = true)
 public class PBuilder extends AbstractPattern {
@@ -23,6 +26,21 @@ public class PBuilder extends AbstractPattern {
 	
 	@Override
 	public void badCode() {
+		
+		badCodeContact();
+		
+	}
+	
+	@Override
+	public void cleanCode() {
+		
+		cleanCodeContact();
+		cleanCodeWindowFake();
+		
+	}
+	
+	public void badCodeContact() {
+		
 		/**
 		 * Here, we have a bad code,
 		 * because needs to initialize many
@@ -44,10 +62,10 @@ public class PBuilder extends AbstractPattern {
 		c.getEmails().add(e2);
 		
 		System.out.println(c.toString());
+		
 	}
 	
-	@Override
-	public void cleanCode() {
+	public void cleanCodeContact() {
 		
 		/**
 		 * Now, here we have a Design Pattern Builder,
@@ -65,5 +83,27 @@ public class PBuilder extends AbstractPattern {
 		System.out.println(c.toString());
 		
 	}
+	
+	public void cleanCodeWindowFake() {
+		
+		FullWindowFakeBuilder fullWindowBuilder = new FullWindowFakeBuilder();
+		BasicWindowFakeBuilder basicWindowBuilder = new BasicWindowFakeBuilder();
+		
+		WindowFake fullWindow = fullWindowBuilder.setWidth(50)
+									.setHeight(20)
+									.setBoardSymbol('*')
+									.setBackgroundSymbol('.')
+									.builderWindowFake();
+		
+		WindowFake basicWindow = basicWindowBuilder.setWidth(50)
+									.setHeight(20)
+									.builderWindowFake();
+		
+		System.out.println(fullWindow);
+		System.out.println(basicWindow);
+		
+		
+	}
+	
 	
 }

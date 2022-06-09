@@ -1,7 +1,7 @@
 package br.com.bino.avancado.patterns;
 
 import br.com.bino.avancado.abstracts.AbstractPattern;
-import br.com.bino.avancado.abstracts.showfiledir.AbstractShowFileDir;
+import br.com.bino.avancado.abstracts.simplefactory.AbstractShowFileDir;
 import br.com.bino.avancado.annotations.PatternMap;
 import br.com.bino.avancado.constants.Constants;
 
