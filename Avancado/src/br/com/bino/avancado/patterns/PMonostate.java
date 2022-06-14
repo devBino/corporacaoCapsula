@@ -21,11 +21,6 @@ public class PMonostate extends AbstractPattern {
 	}
 	
 	@Override
-	public void badCode() {
-		//NA
-	}
-	
-	@Override
 	public void cleanCode() {
 		
 		testeListCars();
