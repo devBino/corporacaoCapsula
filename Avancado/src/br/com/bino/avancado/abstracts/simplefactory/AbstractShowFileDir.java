@@ -1,6 +1,6 @@
 package br.com.bino.avancado.abstracts.simplefactory;
 
-import br.com.bino.avancado.ifaces.fatory.ShowFileDir;
+import br.com.bino.avancado.ifaces.simplefactory.ShowFileDir;
 
 public class AbstractShowFileDir implements ShowFileDir {
 

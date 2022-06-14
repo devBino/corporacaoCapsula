@@ -1,4 +1,4 @@
-package br.com.bino.avancado.ifaces.fatory;
+package br.com.bino.avancado.ifaces.simplefactory;
 
 public interface Calc {
 

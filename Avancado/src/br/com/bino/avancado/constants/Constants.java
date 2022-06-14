@@ -8,7 +8,8 @@ public class Constants {
 	public static final String P_MONOSTATE = "PMonostate";
 	public static final String P_SIMPLE_FACTORY_METHOD = "PSimpleFactoryMethod";
 	public static final String P_ABSTRACT_FACTORY = "PAbstractFactory";
+	public static final String P_PROTOTYPE = "PPrototype";
 	
-	public static final String ACTIVE_PATTERN = P_BUILDER;
+	public static final String ACTIVE_PATTERN = GENERIC;
 	
 }

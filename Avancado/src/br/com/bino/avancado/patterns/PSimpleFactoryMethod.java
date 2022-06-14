@@ -5,22 +5,22 @@ import br.com.bino.avancado.abstracts.simplefactory.AbstractShowFileDir;
 import br.com.bino.avancado.annotations.PatternMap;
 import br.com.bino.avancado.constants.Constants;
 
-import br.com.bino.avancado.ifaces.fatory.Message;
-import br.com.bino.avancado.ifaces.fatory.Calc;
+import br.com.bino.avancado.ifaces.simplefactory.Message;
+import br.com.bino.avancado.ifaces.simplefactory.Calc;
 
-import br.com.bino.avancado.repositories.factory.showfiles.ShowFileDirSimpleFactory;
+import br.com.bino.avancado.repositories.simplefactory.showfiles.ShowFileDirSimpleFactory;
 
-import br.com.bino.avancado.repositories.factory.calc.CalcFactory;
-import br.com.bino.avancado.repositories.factory.calc.ECalc;
-import br.com.bino.avancado.repositories.factory.calc.Sum;
+import br.com.bino.avancado.repositories.simplefactory.calc.CalcFactory;
+import br.com.bino.avancado.repositories.simplefactory.calc.ECalc;
+import br.com.bino.avancado.repositories.simplefactory.calc.Sum;
 
 import br.com.bino.avancado.repositories.factory.message.EMAILMessage;
 import br.com.bino.avancado.repositories.factory.message.EMessage;
 import br.com.bino.avancado.repositories.factory.message.MessageFactory;
 import br.com.bino.avancado.repositories.factory.message.SMSMessage;
 
-import br.com.bino.avancado.repositories.factory.showfiles.ShowFileDirLinux;
-import br.com.bino.avancado.repositories.factory.showfiles.ShowFileDirWindows;
+import br.com.bino.avancado.repositories.simplefactory.showfiles.ShowFileDirLinux;
+import br.com.bino.avancado.repositories.simplefactory.showfiles.ShowFileDirWindows;
 
 @PatternMap(patternName = Constants.P_SIMPLE_FACTORY_METHOD, call = true)
 public class PSimpleFactoryMethod extends AbstractPattern {

@@ -1,4 +1,4 @@
-package br.com.bino.avancado.repositories.factory.showfiles;
+package br.com.bino.avancado.repositories.simplefactory.showfiles;
 
 import java.io.IOException;
 
