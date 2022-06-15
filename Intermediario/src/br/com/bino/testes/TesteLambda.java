@@ -2,6 +2,7 @@ package br.com.bino.testes;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import br.com.bino.abstracts.TesteAbstract;
@@ -38,6 +39,12 @@ public class TesteLambda extends TesteAbstract {
 		linha();
 		
 		testeStreamJoining();
+		linha();
+		
+		testeStreamReduce();
+		linha();
+		
+		testeStreamReduceWithIdentityValue();
 		linha();
 		
 	}
@@ -142,6 +149,47 @@ public class TesteLambda extends TesteAbstract {
 				.collect(Collectors.joining(" "));
 		
 		System.out.println(fullName);
+		
+	}
+	
+	public void testeStreamReduce() {
+		
+		List<Integer> listNumbers = List.of(1,2,3,4,5,6,7,8,9,10);
+		
+		//calculate the sum of all numbers
+		Optional<Integer> sumNumbers = listNumbers.stream()
+					.reduce((n1,n2) -> n1 + n2);
+		
+		System.out.println(sumNumbers.get());
+		
+		/*
+		 * concat using streams like below example is not a very good practice but, 
+		 * is only to mention it's possible
+		 */
+		List<String> nameParts = List.of("João","da","Silva");
+		
+		Optional<String> completeName = nameParts.stream()
+				.reduce((s1,s2) -> s1.concat(s2));
+		
+		System.out.println(completeName.get());
+		
+	}
+	
+	public void testeStreamReduceWithIdentityValue() {
+
+		List<Integer> listNumbers = List.of(1,2,3,4,5,6,7,8,9,10);
+		
+		Integer sumNumbers = listNumbers.stream()
+				.reduce(1, (n1,n2) -> n1 + n2);
+		
+		System.out.println(sumNumbers);
+		
+		List<String> nameParts = List.of("João da Silva");
+		
+		String completeName = nameParts.stream()
+				.reduce(" ", (s1,s2) -> s1.concat(s2));
+		
+		System.out.println(completeName);
 		
 	}
 	
