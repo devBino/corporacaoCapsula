@@ -1,9 +1,16 @@
 package br.com.bino.testes;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import javax.sound.midi.SysexMessage;
 
 import br.com.bino.abstracts.TesteAbstract;
 import br.com.bino.annotations.TesteMap;
@@ -45,6 +52,18 @@ public class TesteLambda extends TesteAbstract {
 		linha();
 		
 		testeStreamReduceWithIdentityValue();
+		linha();
+		
+		testeStreamCollectReturningAnotherCollections();
+		linha();
+		
+		testeStreamCollectorsToCalculateMetrics();
+		linha();
+		
+		testeStreamCollectorsGroupAndPartitions();
+		linha();
+		
+		testeDifferentWaysToCreateLambdaFunctions();
 		linha();
 		
 	}
@@ -150,6 +169,15 @@ public class TesteLambda extends TesteAbstract {
 		
 		System.out.println(fullName);
 		
+		Set<Integer> setNumbers = Set.of(1,2,3,4,5,6,7,8,9,10);
+		
+		String filteredNumbers = setNumbers.stream()
+				.filter(n -> n % 3 == 0)
+				.map(n -> n.toString())
+				.collect(Collectors.joining(";"));
+		
+		System.out.println(filteredNumbers);
+		
 	}
 	
 	public void testeStreamReduce() {
@@ -193,5 +221,150 @@ public class TesteLambda extends TesteAbstract {
 		
 	}
 	
+	public void testeStreamCollectReturningAnotherCollections() {
+		
+		List<Integer> listNumbers = List.of(1,2,3,4,5,6,7,8,9,10);
+		
+		//returns a List
+		List<Integer> list = listNumbers.stream()
+				.filter(n -> n % 2 == 0)
+				.collect(Collectors.toList());
+		
+		System.out.println(list);
+		
+		//returns a Set
+		Set<Integer> set = listNumbers.stream()
+				.filter((Integer n) -> {
+					
+					if( n > 5 ) {
+						return true;
+					}
+					
+					return false;
+					
+				})
+				.collect(Collectors.toSet());
+		
+		System.out.println(set);
+		
+	}
+	
+	public void testeStreamCollectorsToCalculateMetrics() {
+		
+		Set<Integer> setNumbers = Set.of(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+		
+		//calculating the average
+		Double average = setNumbers.stream()
+				.collect(Collectors.averagingDouble(n -> n.doubleValue()));
+		
+		System.out.println("Average => " + average);
+		
+		//calculating the sum
+		Integer sum = setNumbers.stream()
+				.filter(n -> n % 2 == 0)
+				.collect(Collectors.summingInt(n -> n.intValue()));
+		
+		System.out.println("Sum => " + sum);
+		
+		//retrieve a IntSummaryStatistics object that has some util metrics
+		IntSummaryStatistics stats = setNumbers.stream()
+				.filter(n -> n % 3 == 0)
+				.collect(Collectors.summarizingInt(n -> n.intValue()));
+		
+		System.out.println("Average => " + stats.getAverage());
+		System.out.println("Count => " + stats.getCount());
+		System.out.println("Min => " + stats.getMin());
+		System.out.println("Max => " + stats.getMax());
+		System.out.println("Sum => " + stats.getSum());
+		
+		//counting how many elements it was found considering some filter
+		Long totalNumbersFiltered = setNumbers.stream()
+				.filter(n -> {return n % 2 == 0;})
+				.collect(Collectors.counting());
+		
+		System.out.println("Total Numbers Filtered => " + totalNumbersFiltered);
+		
+		//retrieve the minimum value considering a filtered numeric range
+		Optional<Integer> minValue = setNumbers.stream()
+				.filter(n -> {
+					
+					//optionaly we can to implement a complex logic inside the filter
+					if( n % 2 == 0 ) {
+						return true;
+					}
+					
+					return false;
+					
+				})
+				.collect(Collectors.minBy(Comparator.naturalOrder()));
+		
+		System.out.println("Minimum value => " + minValue.get());
+		
+		//retrieve the maximum value considering a filtered numeric range
+		//Note that, the logic inside the filter can be simple too
+		//no matter, there's different way to implement streams
+		Optional<Integer> maxValue = setNumbers.stream()
+				.filter((Integer n) -> {return n % 2 == 0;})
+				.collect(Collectors.maxBy(Comparator.naturalOrder()));
+				
+		System.out.println("Maximum value => " + maxValue);
+		
+	}
+	
+	public void testeStreamCollectorsGroupAndPartitions() {
+		
+		Set<Integer> setNumbers = Set.of(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+		
+		//mapping groups using groupingBy
+		Map<Integer, List<Integer>> mapGroups = setNumbers.stream()
+				.collect(Collectors.groupingBy(n -> n % 5));
+		
+		System.out.println("Groups\n");
+		System.out.println("\t" + mapGroups);
+		
+		//mapping only two boolean values true/false using partitioningBy
+		Map<Boolean, List<Integer>> boolGroups = setNumbers.stream()
+				.collect(Collectors.partitioningBy(n -> n > 7));
+		
+		System.out.println("Boolean Groups\n");
+		System.out.println("\t" + boolGroups);
+		
+	}
+
+	public void testeDifferentWaysToCreateLambdaFunctions() {
+
+		//Parenthesis is mandatory in three situations:
+		
+		//1 -When has more than one arguments
+		Set<Integer> setNumbers = Set.of(1,2,3,4,5,6,7,8);
+		Optional<Integer> sumNumbers = setNumbers.stream()
+				.reduce((n1,n2) -> n1 + n2);
+		
+		System.out.println(sumNumbers.get());
+		
+		//2 - When needs to declare the argument type
+		List<Integer> listNumbers = List.of(1,2,3,4,5,6,7,8);
+		
+		List<Integer> filteredListNumbers = listNumbers.stream()
+				.filter((Integer n) -> n % 2 == 0)
+				.collect(Collectors.toList());
+		
+		System.out.println(filteredListNumbers);
+		
+		//3 - When there's no arguments
+		Runnable runnable = () -> System.out.println("Aloha inside runnable impementation!!");
+		Thread thread = new Thread(runnable);
+		thread.start();
+		
+		//keys is mandatory when has more than one line
+		//also, when needs to return something
+		setNumbers.stream()
+			.filter(n -> {
+				System.out.println("aloha " + n);
+				return true;
+			})
+			.forEach(System.out::println);
+		
+	}
 	
 }
