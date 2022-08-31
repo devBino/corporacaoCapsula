@@ -2,9 +2,10 @@ package br.com.bino.avancado.repositories.singleton;
 
 public class ConnectionDBFake {
 
+	public static String name;
 	private static ConnectionDBFake connection;
 	
-	public ConnectionDBFake() {}
+	private ConnectionDBFake() {}
 	
 	public static ConnectionDBFake getInstance() {
 		

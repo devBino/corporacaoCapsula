@@ -13,6 +13,9 @@ public class TesteRegex extends TesteAbstract {
 	@Override
 	public void teste() {
 		
+		testeValidarEmail();
+		linha();
+		
 		testeInicialRegex();
 		
 		linha();
@@ -117,6 +120,19 @@ public class TesteRegex extends TesteAbstract {
 		
 		return null;
 		
+	}
+	
+	public static void testeValidarEmail() {
+		
+		String email = "programemachado@gmail.com";
+		String regex = "[a-zA-Z0-9@.-_]+";
+		
+		System.out.println( email.matches(regex) );
+		
+	}
+	
+	public static void main(String[] args) {
+		testeValidarEmail();
 	}
 	
 	

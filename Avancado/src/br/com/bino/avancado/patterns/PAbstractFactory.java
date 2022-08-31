@@ -16,17 +16,6 @@ public class PAbstractFactory extends AbstractPattern {
     }
 
     @Override
-    public void badCode() {
-        
-    	System.out.println(new StringBuilder()
-    			.append("There's no bad code to put here, \n")
-    			.append("because the Abstract Factory is a \n")
-    			.append("complex implementation...")
-    			.toString());
-        
-    }
-
-    @Override
     public void cleanCode() {
         
     	CountryRulesAbstractFactory brazilianRules = new BrazilianRulesAbstractFactory();

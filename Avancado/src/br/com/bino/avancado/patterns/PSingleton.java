@@ -4,6 +4,7 @@ import br.com.bino.avancado.abstracts.AbstractPattern;
 import br.com.bino.avancado.annotations.PatternMap;
 import br.com.bino.avancado.constants.Constants;
 import br.com.bino.avancado.repositories.singleton.ConnectionDBFake;
+import br.com.bino.avancado.repositories.singleton.ConnectionDBFake2;
 
 @PatternMap(patternName = Constants.P_SINGLETON, call = true)
 public class PSingleton extends AbstractPattern {
@@ -26,8 +27,8 @@ public class PSingleton extends AbstractPattern {
 		 * because we can't have two instances, we must to have one 
 		 * instance only
 		 */
-		ConnectionDBFake con1 = new ConnectionDBFake();
-		ConnectionDBFake con2 = new ConnectionDBFake();
+		ConnectionDBFake2 con1 = new ConnectionDBFake2("First Connection");
+		ConnectionDBFake2 con2 = new ConnectionDBFake2("Second Connection");
 		
 		System.out.println(con1);
 		System.out.println(con2);
