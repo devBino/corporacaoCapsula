@@ -14,6 +14,12 @@ public class Constants {
 	public static final String P_COMPOSITE = "PComposite";
 	public static final String P_DECORATOR = "PDecorator";
 	public static final String P_FACADE = "PFacade";
-	public static final String ACTIVE_PATTERN = P_FACADE;
+	public static final String P_FLYWEIGHET = "PFlyweight";
+	public static final String P_MEDIATOR = "PMediator";
+	public static final String P_PROXY = "PProxy";
+	public static final String P_CHAIN_OF_RESPONSABILITY = "PChainOfResponsability";
+	public static final String P_MEMENTO = "PMemento";
+	public static final String P_COMMAND = "PCommand";
+	public static final String ACTIVE_PATTERN = P_COMMAND;
 	
 }
