@@ -26,6 +26,10 @@ public class PCommand extends AbstractPattern {
 		LightOn lightOn = new LightOn(cacildsLight);
 		LightOff lightOff = new LightOff(cacildsLight);
 		
+		//here we have the called to execute commands,
+		//but is important to consider build a 
+		//personal panel to send requests and then,
+		//in another personal object execute this command
 		lightOn.execute();
 		System.out.println( "State of the " + cacildsLight.getClass().getSimpleName() + " = " +  cacildsLight.isOn() );
 		

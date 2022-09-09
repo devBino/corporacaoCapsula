@@ -20,6 +20,11 @@ public class Constants {
 	public static final String P_CHAIN_OF_RESPONSABILITY = "PChainOfResponsability";
 	public static final String P_MEMENTO = "PMemento";
 	public static final String P_COMMAND = "PCommand";
-	public static final String ACTIVE_PATTERN = P_COMMAND;
+	public static final String P_ITERATOR = "PIterator";
+	public static final String P_OBSERVER = "PObserver";
+	public static final String P_STATE = "PState";
+	public static final String P_STRATEGY = "PStrategy";
+	public static final String P_TEMPLATE_METHOD = "PTemplateMethod";
+	public static final String ACTIVE_PATTERN = P_TEMPLATE_METHOD;
 	
 }
