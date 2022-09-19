@@ -57,11 +57,11 @@ public class PatternProcessor {
 				//verify if is a generic pattern or a specific pattern
 				if( Constants.ACTIVE_PATTERN.equals(Constants.GENERIC) ) {
 					
-					listPatterns.add( (AbstractPattern) c.newInstance() );
+					listPatterns.add( (AbstractPattern) c.getDeclaredConstructor().newInstance() );
 					
 				}else if( pt.patternName().equals(Constants.ACTIVE_PATTERN) ) {
 				
-					listPatterns.add(  (AbstractPattern) c.newInstance() );
+					listPatterns.add(  (AbstractPattern) c.getDeclaredConstructor().newInstance() );
 					break;
 					
 				}
